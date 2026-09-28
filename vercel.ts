@@ -38,8 +38,7 @@ if (!rawSubBase) {
 const SUB = rawSubBase.replace(/^https?:\/\//, '').replace(/\/+$/, '');
 
 /**
- * 打样批（P1）：session / storage / gateway 三组 slug 映射。
- * 全量批（P2）扩至 26 组——此表即唯一扩展点。
+ * 26 组 slug 映射全集（此表即唯一扩展点）。
  *
  * 每条 slug 生成三条规则：
  *   redirect 裸 `/<slug>` -> `/<slug>/`（301）
@@ -52,8 +51,31 @@ const SUB = rawSubBase.replace(/^https?:\/\//, '').replace(/\/+$/, '');
  *     前缀在转发时被剥离 => 服务侧路由零改造；页面 base=`/<slug>/`。
  */
 const PAGES = [
+  { slug: 'identity', host: 'identity-demo', page: 'identity-demo.html' },
+  { slug: 'profile', host: 'profile-demo', page: 'profile-demo.html' },
+  { slug: 'tenant', host: 'tenant-demo', page: 'tenant-demo.html' },
   { slug: 'session', host: 'session-demo', page: 'session-demo.html' },
+  { slug: 'mfa', host: 'mfa-demo', page: 'mfa-demo.html' },
+  { slug: 'oauth', host: 'oauth-demo', page: 'oauth-demo.html' },
+  { slug: 'config', host: 'config-demo', page: 'config-demo.html' },
+  { slug: 'wallet', host: 'wallet-demo', page: 'wallet-demo.html' },
+  { slug: 'point', host: 'point-demo', page: 'point-demo.html' },
+  { slug: 'audit', host: 'audit-demo', page: 'audit-demo.html' },
+  { slug: 'notification', host: 'notification-demo', page: 'notification-demo.html' },
+  { slug: 'communication', host: 'communication-demo', page: 'communication-demo.html' },
   { slug: 'storage', host: 'storage-demo', page: 'storage-demo.html' },
+  { slug: 'billing', host: 'billing-demo', page: 'billing-demo.html' },
+  { slug: 'compliance', host: 'compliance-demo', page: 'compliance-demo.html' },
+  { slug: 'status', host: 'status-demo', page: 'status-demo.html' },
+  { slug: 'secret', host: 'secret-demo', page: 'secret-demo.html' },
+  { slug: 'saml', host: 'saml-demo', page: 'saml-demo.html' },
+  { slug: 'pay', host: 'pay-demo', page: 'pay-demo.html' },
+  { slug: 'thirdparty', host: 'thirdparty-demo', page: 'captcha-demo.html' },
+  { slug: 'verification', host: 'verification-demo', page: 'verification-demo.html' },
+  { slug: 'rbac', host: 'rbac-demo', page: 'rbac-demo.html' },
+  { slug: 'hash-standard', host: 'hash-standard-demo', page: 'hash-demo.html' },
+  { slug: 'hash-sm', host: 'hash-sm-demo', page: 'hash-demo.html' },
+  { slug: 'captcha3d', host: 'captcha3d-demo', page: 'demo.html' },
   { slug: 'gateway', host: 'gateway-demo', page: 'gateway-demo.html' },
 ];
 
