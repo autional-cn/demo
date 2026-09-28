@@ -15,14 +15,14 @@
 
 - 对外唯一演示域名 = **`demo.autional.cn`**（Vercel，境外 -> 不触发 ICP）
 - 内部源站 = 环境变量 `DEMO_ORIGIN`；过渡期 = `https://cn.autional.tianv.mobi`（dev 单实例，与 `cn-api` 同一 tianv.mobi 桥）
-- 只代理门户所需路径（`/`、`/demos.html`、`/demo/*`、`/ready`）；对外 API 面走 `api.autional.cn`，本仓不重复暴露
+- 只代理门户所需路径（`/`、`/demos.html`、`/demo`、`/demo/*`、`/health`、`/ready`）；对外 API 面走 `api.autional.cn`，本仓不重复暴露
 - 逐服务演示台在各 `<svc>-demo.<域>` 主机（卡片链接由源站 `/demo/api/config` 下发），不经本入口
 
 ## 内容
 
 | 文件 | 说明 |
 |---|---|
-| `vercel.ts` | 4 条 rewrite：`/`、`/demos.html`、`/demo/*`、`/ready` -> `${DEMO_ORIGIN}/...` |
+| `vercel.ts` | 6 条 rewrite：`/`、`/demos.html`、`/demo`、`/demo/*`、`/health`、`/ready` -> `${DEMO_ORIGIN}/...` |
 | `package.json` | 仅依赖 `@vercel/config`（`vercel.ts` 的运行时/类型） |
 | `public/robots.txt` | 演示环境不索引（`Disallow: /`） |
 | `LICENSE` | AGPL-3.0（与 `autional-cn/*` 一致） |
