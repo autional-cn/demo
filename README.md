@@ -7,7 +7,7 @@
 ## 职责
 
 ```
-浏览器 -> demo.autional.cn/            （门户页，26 服务卡）
+浏览器 -> demo.autional.cn/            （门户页，27 服务卡）
        -> demo.autional.cn/<slug>/     （各服务演示台，如 /session/、/storage/）
        -> Vercel rewrite（服务端转发，不改地址栏）
        -> 门户面：  ${DEMO_ORIGIN}/...                     （原样透传）
@@ -15,13 +15,13 @@
 ```
 
 - 对外唯一演示域名 = **`demo.autional.cn`**（Vercel，境外 -> 不触发 ICP）
-- **单域路径化**：26 个演示台收敛为 `demo.autional.cn/<slug>/`；内部目标仍是 `<svc>-demo.<域>` 子域，但只出现在**服务端转发目标**里，浏览器不可见，ingress / 服务侧路由零改造
+- **单域路径化**：27 个演示台收敛为 `demo.autional.cn/<slug>/`；内部目标仍是 `<svc>-demo.<域>` 子域，但只出现在**服务端转发目标**里，浏览器不可见，ingress / 服务侧路由零改造
 - 门户面只代理所需路径（`/`、`/demos.html`、`/demo`、`/demo/*`、`/health`、`/ready`）；对外 API 面走 `api.autional.cn`，本仓不重复暴露
-- 原 26 个 `<svc>-demo.<域>` 子域**保留**为内部/调试入口（不再是对外卡片口径）
+- 原 27 个 `<svc>-demo.<域>` 子域**保留**为内部/调试入口（不再是对外卡片口径）
 
 ## 路由规则（`vercel.ts`）
 
-### 每个 slug 三条规则（26 组）
+### 每个 slug 三条规则（27 组）
 
 | 规则 | 作用 |
 |---|---|
@@ -58,6 +58,7 @@
 | `hash-standard` | `hash-standard-demo` | `/hash-demo.html` |
 | `hash-sm` | `hash-sm-demo` | `/hash-demo.html` |
 | `captcha3d` | `captcha3d-demo` | `/demo.html` |
+| `stream` | `stream-demo` | `/stream-demo.html` |
 | `gateway` | `gateway-demo` | `/gateway-demo.html` |
 
 ### gateway 根级映射组（页面零改动）
@@ -76,7 +77,7 @@
 
 | 文件 | 说明 |
 |---|---|
-| `vercel.ts` | 生成式规则：26×（redirect + 2 rewrite）+ gateway 根级组 7 条 + 门户面 6 条（`/`、`/demos.html`、`/demo`、`/demo/*`、`/health`、`/ready`） |
+| `vercel.ts` | 生成式规则：27×（redirect + 2 rewrite）+ gateway 根级组 7 条 + 门户面 6 条（`/`、`/demos.html`、`/demo`、`/demo/*`、`/health`、`/ready`） |
 | `package.json` | 仅依赖 `@vercel/config`（`vercel.ts` 的运行时/类型） |
 | `public/robots.txt` | 演示环境不索引（`Disallow: /`） |
 | `LICENSE` | AGPL-3.0（与 `autional-cn/*` 一致） |

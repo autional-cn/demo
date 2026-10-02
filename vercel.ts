@@ -38,7 +38,7 @@ if (!rawSubBase) {
 const SUB = rawSubBase.replace(/^https?:\/\//, '').replace(/\/+$/, '');
 
 /**
- * 26 组 slug 映射全集（此表即唯一扩展点）。
+ * 27 组 slug 映射全集（此表即唯一扩展点）。
  *
  * 每条 slug 生成三条规则：
  *   redirect 裸 `/<slug>` -> `/<slug>/`（301）
@@ -76,6 +76,7 @@ const PAGES = [
   { slug: 'hash-standard', host: 'hash-standard-demo', page: 'hash-demo.html' },
   { slug: 'hash-sm', host: 'hash-sm-demo', page: 'hash-demo.html' },
   { slug: 'captcha3d', host: 'captcha3d-demo', page: 'demo.html' },
+  { slug: 'stream', host: 'stream-demo', page: 'stream-demo.html' },
   { slug: 'gateway', host: 'gateway-demo', page: 'gateway-demo.html' },
 ];
 
@@ -111,7 +112,7 @@ const gatewayRootRewrites = [
 
 /**
  * 门户面（既有）：只代理门户所需路径（**最小暴露面**，不做全量透传）：
- *   /            -> 门户页（26 服务卡）
+ *   /            -> 门户页（27 服务卡）
  *   /demos.html  -> 门户页直链
  *   /demo/*      -> 门户静态资源与演示 API（assets / api/config / api/demo-tokens）
  *   /health      -> 门户状态带探活（SYSTEM ACTIVE / API ERROR）
