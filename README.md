@@ -1,3 +1,5 @@
+> **本仓库已归档**（只读）：源码与后续开发已迁移至 [github.com/autional/demo](https://github.com/autional/demo)；线上服务见 [demo.autional.cn](https://demo.autional.cn)。
+
 # demo
 
 `demo.autional.cn` 的**演示单域入口**（Vercel 反向代理）。
